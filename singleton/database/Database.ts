@@ -6,10 +6,10 @@ export default class Database {
   }
 
   public static getInstance(): Database {
-    if (Database.instance)
-      return Database.instance;
+    if (!Database.instance)
+      this.instance = new Database();
 
-    return new Database();
+    return Database.instance;
   }
 
   connect(): void {

@@ -5,10 +5,10 @@ export default class PrinterManager {
   private constructor() { }
 
   static getInstance(): PrinterManager {
-    if (PrinterManager.instance)
-      return PrinterManager.instance;
+    if (!PrinterManager.instance)
+      this.instance = new PrinterManager();
 
-    return new PrinterManager();
+    return PrinterManager.instance;
   }
 
   print(document: string): void {
